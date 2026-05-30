@@ -1,7 +1,8 @@
-<h1>Proyecto A definir 💻</h1>
+<h1> SGT - Gestor de Tareas</h1>
 
 <h2>Descripción 💡</h2>
-<p>Este es un proyecto integrador correspondiente al Grupo número 3. Actualmente el grupo se encuentra definiendo el tipo de aplicación que se va a desarrollar. Una vez confirmada, se actualizará la descripción del proyecto
+<p>
+STG es un proyecto integrador correspondiente al Grupo N.º 3. Su objetivo principal es desarrollar una herramienta que permita organizar y administrar tareas de manera simple y práctica, ayudando a los usuarios a llevar un mejor control de sus actividades diarias según sus necesidades y prioridades.
 </p>
 
 <h2>Tecnologías y Herramientas ⚙️</h2>
@@ -16,7 +17,7 @@
   <dd>Lenguaje:JavaScript</dd>
   <dd>Framework:Express</dd>
   <dd>Arquitectura: Router, Controller, Service, Repository</dd>
-  <dd>Base de datos: MongoDB o SQL server (A confirmar)</dd>
+  <dd>Base de datos: SQL server </dd>
 </dl>
 
 <h2>Integrantes del grupo 👥</h2>
