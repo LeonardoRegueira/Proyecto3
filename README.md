@@ -17,7 +17,7 @@ STG es un proyecto integrador correspondiente al Grupo N.º 3. Su objetivo princ
   <dd>Lenguaje:JavaScript</dd>
   <dd>Framework:Express</dd>
   <dd>Arquitectura: Router, Controller, Service, Repository</dd>
-  <dd>Base de datos: SQL server </dd>
+  <dd>Base de datos: MongoDB </dd>
 </dl>
 
 <h2>Integrantes del grupo 👥</h2>
