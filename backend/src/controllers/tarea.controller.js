@@ -7,7 +7,7 @@ exports.todasLasTareasController = async (req, res) => {
     res.status(200).send(JSON.stringify(listaTotal));
   }
   catch (error) {
-    console.log("Error en buscar las todas tareas - Capa Controller", error)
+    console.log("Error en buscar todas tareas - Capa Controller", error)
   }
 };
 exports.tareasFiltradasEstadoController = async (req, res) => {

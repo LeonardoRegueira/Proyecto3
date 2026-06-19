@@ -52,10 +52,7 @@ exports.tareasFiltradasSegunId = async (idBuscado) => {
         const tareaBuscadaId = tareas.find(
             element => element.id === idBuscado);
         if(!tareaBuscadaId){
-            res.status(404).send({
-                code: 404,
-                message:"Error, Tarea no encontrada"
-            });
+            return "No hay ninguna tarea con ese id: "+idBuscado
         }
         return tareaBuscadaId;
     }

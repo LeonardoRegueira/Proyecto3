@@ -6,7 +6,7 @@ exports.todasTareasService =async()=>{
         return listaTodasService;
     }
     catch(error){
-        console.log("Error en buscar las todas tareas - Capa Service" ,error)
+        console.log("Error en buscar todas las tareas - Capa Service" ,error)
     }
 }
 exports.tareasFiltradasPorEstadoService =async(estadoBuscado)=>{
@@ -15,7 +15,7 @@ exports.tareasFiltradasPorEstadoService =async(estadoBuscado)=>{
         return listaFiltradaEstado;
     }
     catch(error){
-        console.log("Error en buscar las todas segun su estado - Capa Service" ,error)
+        console.log("Error en buscar tarea por estado - Capa Service" ,error)
     }
 }
 exports.tareasFiltradasPorIdService = async (idBuscado)=>{
