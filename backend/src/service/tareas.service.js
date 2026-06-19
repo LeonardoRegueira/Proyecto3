@@ -9,12 +9,21 @@ exports.todasTareasService =async()=>{
         console.log("Error en buscar las todas tareas - Capa Service" ,error)
     }
 }
-exports.tareasFiltradas =async(estadoBuscado)=>{
+exports.tareasFiltradasPorEstadoService =async(estadoBuscado)=>{
     try{
-        let listaFiltrada= await tareasRepository.tareasFiltradasSegunEstado(estadoBuscado);
-        return listaTodasService;
+        let listaFiltradaEstado= await tareasRepository.tareasFiltradasSegunEstado(estadoBuscado);
+        return listaFiltradaEstado;
     }
     catch(error){
         console.log("Error en buscar las todas segun su estado - Capa Service" ,error)
+    }
+}
+exports.tareasFiltradasPorIdService = async (idBuscado)=>{
+    try{
+        let listaFiltradaId = await tareasRepository.tareasFiltradasSegunId(idBuscado);
+        return listaFiltradaId;
+    }
+    catch(error){
+        console.log("Error en buscar tarea por id - Capa Service" ,error)
     }
 }

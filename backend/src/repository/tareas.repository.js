@@ -26,66 +26,34 @@ exports.tareasFiltradasSegunEstado = async (estadoBuscado) => {
             }
             return listaEnProgreso;
         }
-    else if (estadoBuscado === "completada") {
-        const listaCompletadas = tareas.filter(
-            element => element.estado === "completada"
-        );
-        if (listaCompletadas === []) {
+        else if (estadoBuscado === "completada") {
+            const listaCompletadas = tareas.filter(
+                element => element.estado === "completada"
+            );
+            if (listaCompletadas === []) {
                 return []
             }
             return listaCompletadas;
+        }
+    }
+    catch (error) {
+        console.log("Error en devolver tareas - Capa Repository", error)
     }
 }
-    catch (error) {
-    console.log("Error en devolver tareas - Capa Repository", error)
-}
-}
+exports.tareasFiltradasSegunId = async (idBuscado) => {
 
-//exports.tareasPendientes = async () => {
-//    try {
-//        const listaPendientes = tareas.filter(
-//            element => element.estado === "pendiente"
-//        );
-//        if (listaPendientes === 0) {
-//            return []
-//        }
-//        else {
-//            return listaPendientes
-//        }
-//    }
-//    catch (error) {
-//        console.log("Error en devolver tareas pendientes - Capa Repository", error)
-//    }
-//}
-//exports.tareasEnProgreso = async () => {
-//    try {
-//        const listaEnProgreso = tareas.filter(
-//            element => element.estado === "en progreso"
-//        );
-//        if (listaEnProgreso === 0) {
-//            return []
-//        }
-//        else {
-//            return listaEnProgreso
-//        }
-//    }
-//    catch (error) {
-//        console.log("Error en devolver tareas en progreso - Capa Repository", error)
-//    }
-//}
-//exports.tareasCompletas = async () => {
-//    try {
-//        const listaCompletadas = tareas.filter(
-//            element => element.estado === "completada"
-//        );
-//        if (listaCompletadas === 0) {
-//            return []
-//        }
-//        else {
-//            return listaCompletadas
-//        }
-//    }
-//    catch (error) {
-//        console.log("Error en devolver tareas completadas - Capa Repository", error)
-//    }
-//}
+    try {
+        const tareaBuscadaId = tareas.find(
+            element => element.id === idBuscado);
+        if(!tareaBuscadaId){
+            res.status(404).send({
+                code: 404,
+                message:"Error, Tarea no encontrada"
+            });
+        }
+        return tareaBuscadaId;
+    }
+    catch (error) {
+        console.log("Error en devolver tarea buscada por id - Capa Repository", error)
+    }
+}

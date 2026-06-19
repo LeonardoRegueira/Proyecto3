@@ -76,7 +76,7 @@ http://localhost:3000/
 Si todo esta bien, deberia mostrar:
 
 ```text
-Backend funcionando
+Backend funcionando.
 ```
 
 ### Terminal 2: frontend
