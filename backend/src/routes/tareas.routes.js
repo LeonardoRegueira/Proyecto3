@@ -7,6 +7,6 @@ const routerTareas = express.Router();
 
 routerTareas.get("/tareas/todas", tareasController.todasLasTareasController);
 routerTareas.get("/tareas/id/:id", tareasController.buscarTareaPorId);
-routerTareas.get("/tareas/esatdo/:estado", tareasController.tareasFiltradasEstadoController);
+routerTareas.get("/tareas/estado/:estado", tareasController.tareasFiltradasEstadoController);
 
-module.exports = router;
+module.exports = routerTareas;

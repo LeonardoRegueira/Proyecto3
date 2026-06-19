@@ -2,7 +2,7 @@ const tareasRepository = require("../repository/tareas.repository");
 
 exports.todasTareasService =async()=>{
     try{
-        let listaTodasService= await tareasRepository.todasLasTareas();
+        let listaTodasService = await tareasRepository.todasLasTareas();
         return listaTodasService;
     }
     catch(error){

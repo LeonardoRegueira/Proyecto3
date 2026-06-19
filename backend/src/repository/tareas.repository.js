@@ -1,9 +1,15 @@
 const tareas = require("../src/baseDeDatos");
 exports.todasLasTareas = async () => {
     try {
-        return await JSON.stringify(tareas);
+        console.log("Hola desde Capa Repository- Lista Todos")
+        if(tareas.length===0){
+            return "No hay ninguna tarea"
+        }
+        return tareas;
     }
-    catch { }
+    catch (error) {
+        console.log("Error en devolver todas las tareas - Capa Repository", error)
+    }
 }
 
 exports.tareasFiltradasSegunEstado = async (estadoBuscado) => {
@@ -12,8 +18,8 @@ exports.tareasFiltradasSegunEstado = async (estadoBuscado) => {
             const listaPendientes = tareas.filter(
                 element => element.estado === "pendiente"
             );
-            if (listaPendientes === []) {
-                return []
+            if (listaPendientes.length===0) {
+                return "No hay tareas pendientes"
             }
             return listaPendientes;
         }
@@ -21,8 +27,8 @@ exports.tareasFiltradasSegunEstado = async (estadoBuscado) => {
             const listaEnProgreso = tareas.filter(
                 element => element.estado === "en progreso"
             );
-            if (listaEnProgreso === []) {
-                return []
+            if (listaEnProgreso.length===0) {
+                return "No hay tareas en progreso"
             }
             return listaEnProgreso;
         }
@@ -30,8 +36,8 @@ exports.tareasFiltradasSegunEstado = async (estadoBuscado) => {
             const listaCompletadas = tareas.filter(
                 element => element.estado === "completada"
             );
-            if (listaCompletadas === []) {
-                return []
+            if (listaCompletadas.length===0) {
+                return "No hay tareas completadas"
             }
             return listaCompletadas;
         }
