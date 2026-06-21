@@ -1,10 +1,12 @@
 .component{
     display: flex;
+    width: 100%;
+    
 }
 .component_menu{ /*cuadro del menu*/
     width: fit-content;
     border: 1px #ecf1f7 solid;
-    height: 100vh;
+
 }
 .class_title{
     display: flex;
@@ -23,12 +25,11 @@
     font-size:35px;
     margin-left: 5%;
 }
-
-#item{
+.item{
     display: flex;
     padding: 13% 0%;
 }
-#item p{
+.item p{
     width: 100%;
     display:flex;
     align-items: center;
@@ -49,20 +50,33 @@
     content: url('./ico/Canceladas.png');
 }
 
-.bar{
-    background-color: #ecf1f7;
-    height: fit-content;
-    width: 100%;
-    padding: 1% 0%;
 
-}
-.bar p{
-    margin-left: 2%;
-    font-size:35px;
-}
+
+
 
 /*estados menu*/
 .class_menu :hover{
     background-color: #ecf1f7;
     cursor: pointer;
+}
+ nav,
+    .offcanvas {
+      background-color: #1e293b;
+    }
+    .navbar-toggler {
+      border: none;
+    }
+    .navbar-toggler:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    @media (max-width: 768px) {
+      .navbar-nav > li:hover {
+        background-color: #0dcaf0;
+      }
+    }
+.main-content{
+    width: 100%;
+    display: block;
 }
