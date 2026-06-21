@@ -1,52 +1,28 @@
-//Datos de prueba: array de tareas
-const tareas = [
-  {
-    id: 1,
-    titulo: 'Primera tarea',
-    descripcion: 'Tarea de prueba',
-    estado: 'pendiente'
-  },
-  {
-    id: 2,
-    titulo: 'Segunda tarea',
-    descripcion: 'Otra tarea de prueba',
-    estado: 'completada'
-  }
-];
+const tareaService = require('../services/tarea.service');
 
-// Devuelve todas las tareas
 const listarTareas = (req, res) => {
+  const tareas = tareaService.listarTareas();
+
   res.setHeader('Content-Type', 'application/json');
   res.send(JSON.stringify(tareas));
 };
 
-//Busca tareas por ID
-
 const buscarTareaPorId = (req, res) => {
-  const id = req.params.id;
+  const id = Number(req.params.id);
+  const tareaEncontrada = tareaService.buscarTareaPorId(id);
 
-  //Busca tareas en el arreglo
-  const tareaEncontrada = tareas.find((tarea) => tarea.id === id);
-
-//Si la tarea no es encontrada da error
   if (!tareaEncontrada) {
-
     res.status(404);
     res.setHeader('Content-Type', 'application/json');
     res.send(JSON.stringify({ mensaje: 'Tarea no encontrada' }));
     return;
-
   }
-// Devuelve la tarea encontrada
+
   res.setHeader('Content-Type', 'application/json');
   res.send(JSON.stringify(tareaEncontrada));
-
 };
 
-//exportamos las funciones 
 module.exports = {
-  
   listarTareas,
   buscarTareaPorId
-
 };
