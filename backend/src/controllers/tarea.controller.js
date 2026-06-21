@@ -1,4 +1,4 @@
-//Datos de prueba y funcion listar tareas
+//Datos de prueba: array de tareas
 const tareas = [
   {
     id: 1,
@@ -14,19 +14,21 @@ const tareas = [
   }
 ];
 
-//aca esta la funcion
+// Devuelve todas las tareas
 const listarTareas = (req, res) => {
   res.setHeader('Content-Type', 'application/json');
   res.send(JSON.stringify(tareas));
 };
 
-//buscar por id
+//Busca tareas por ID
 
 const buscarTareaPorId = (req, res) => {
+  const id = req.params.id;
 
-  const id = Number(req.params.id);
+  //Busca tareas en el arreglo
   const tareaEncontrada = tareas.find((tarea) => tarea.id === id);
 
+//Si la tarea no es encontrada da error
   if (!tareaEncontrada) {
 
     res.status(404);
@@ -35,12 +37,13 @@ const buscarTareaPorId = (req, res) => {
     return;
 
   }
-
+// Devuelve la tarea encontrada
   res.setHeader('Content-Type', 'application/json');
   res.send(JSON.stringify(tareaEncontrada));
 
 };
 
+//exportamos las funciones 
 module.exports = {
   
   listarTareas,
