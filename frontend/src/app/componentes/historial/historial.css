@@ -1,0 +1,30 @@
+.titulo{
+    text-align: center;
+    color: white;
+}
+.fondo{
+    background-color: lightgrey;
+    width: 100%;
+    height: 100%;
+}
+
+
+nav{
+    display: flex;
+    justify-content: space-evenly;
+}
+a{
+    font-size: 25px;
+}
+
+.nav-pills#pillNav2 {
+  --bs-nav-link-color: var(--bs-white);
+  --bs-nav-pills-link-active-color: var(--bs-nav-pills-link-active-color);
+  --bs-nav-pills-link-active-bg: var(--bs-white);
+}
+.navbar{
+    margin-top: none;
+}
+.nav-item{
+    font-size: medium;
+}
