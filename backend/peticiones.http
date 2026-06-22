@@ -1,0 +1,40 @@
+### Todas las tareas
+GET http://127.0.0.1:3000/api/tareas/todas HTTP/1.1
+
+### Tareas pendientes
+GET http://127.0.0.1:3000/api/tareas/estado/pendiente HTTP/1.1
+### Tareas en progreso
+GET http://127.0.0.1:3000/api/tareas/estado/en%20progreso HTTP/1.1
+
+### Tareas completadas
+GET http://127.0.0.1:3000/api/tareas/estado/completada HTTP/1.1
+
+### Tarea buscada por id
+GET http://127.0.0.1:3000/api/tareas/id/2 HTTP/1.1
+
+###
+POST http://127.0.0.1:3000/api/ingresar-tarea HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 7,
+    "titulo": "Nueva tarea Express",
+    "nivel_prioridad": "Critico",
+    "descripcion": "Ingreso de nueva tarea desde express",
+    "estado": "completada"
+}
+
+###
+DELETE http://127.0.0.1:3000/api/eliminar/2 HTTP/1.1
+
+###
+PUT http://127.0.0.1:3000/api/actualizar HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 4,
+    "titulo": "Actualizar tarea Express",
+    "nivel_prioridad": "Medio",
+    "descripcion": "Tarea actualizada desde express",
+    "estado": "pendiente"
+}
