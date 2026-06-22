@@ -1,19 +1,22 @@
 const tareasRepository = require('../repository/tareas.repository');
 
-const todasTareasService = () => {
+const listarTareas = () => {
   return tareasRepository.todasLasTareas();
 };
 
-const tareasFiltradasPorIdService = (idBuscado) => {
+const buscarTareaPorId = (idBuscado) => {
   return tareasRepository.tareasFiltradasSegunId(idBuscado);
 };
 
-const tareasFiltradasPorEstadoService = (estadoBuscado) => {
+const listarTareasPorEstado = (estadoBuscado) => {
   return tareasRepository.tareasFiltradasSegunEstado(estadoBuscado);
 };
 
 module.exports = {
-  todasTareasService,
-  tareasFiltradasPorIdService,
-  tareasFiltradasPorEstadoService
+  listarTareas,
+  buscarTareaPorId,
+  listarTareasPorEstado,
+  todasTareasService: listarTareas,
+  tareasFiltradasPorIdService: buscarTareaPorId,
+  tareasFiltradasPorEstadoService: listarTareasPorEstado
 };
