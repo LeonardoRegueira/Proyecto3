@@ -49,6 +49,10 @@
     content: url('./ico/Canceladas.png');
 }
 
+.contenedor{
+    width: 100%;
+}
+
 .bar{
     background-color: #ecf1f7;
     height: fit-content;
@@ -59,6 +63,14 @@
 .bar p{
     margin-left: 2%;
     font-size:35px;
+}
+.page-body {
+    flex: 1;
+    width: 100%;
+    padding: 40px;      
+    box-sizing: border-box;
+    justify-content: flex-start; 
+    align-items: flex-start;
 }
 
 /*estados menu*/
