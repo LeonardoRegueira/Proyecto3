@@ -1,0 +1,18 @@
+<h2>Detalle de tarea</h2>
+
+
+<p *ngIf="cargando">Cargando tarea...</p>
+
+
+<p *ngIf="errorMensaje">{{ errorMensaje }}</p>
+
+
+<div *ngIf="!cargando && tarea">
+
+  <h3>{{ tarea.titulo }}</h3>
+
+  <p>{{ tarea.descripcion }}</p>
+
+  <p>Estado: {{ tarea.estado }}</p>
+
+</div>

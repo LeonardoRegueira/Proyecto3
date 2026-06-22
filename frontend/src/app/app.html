@@ -1,4 +1,5 @@
 <div class="component">
+
   <div class="component_menu">
 
     <div class="class_title">
@@ -7,30 +8,41 @@
     </div>
 
     <div class="class_menu">
-      <div id="item">
-        <img alt="Panel" class="panel">
+
+      <div class="item">
+        <img alt="Panel principal" class="panel">
         <p>Panel Principal</p>
       </div>
 
-      <div id="item">
-        <img alt="Nuevo" class="nuevo">
+      <div class="item">
+        <img alt="Nueva tarea" class="nuevo">
         <p>Nueva Tarea</p>
       </div>
 
-      <div id="item">
-        <img alt="TareasPend" class="pendientes">
-        <p>Listas de Tareas</p>
-      </div>
+      <a class="item" routerLink="/tareas">
+        <img alt="Lista de tareas" class="pendientes">
+        <p>Lista de Tareas</p>
+      </a>
 
-      <div id="item"> 
-        <img alt="Canceladas" class="canceladas">
+      <div class="item">
+        <img alt="Tareas canceladas" class="canceladas">
         <p>Tareas Canceladas</p>
       </div>
+
     </div>
 
   </div>
-  
-  <div class="bar">
-    <p>Panel Principal</p>
+
+  <div class="zona-principal">
+
+    <div class="bar">
+      <p>Panel Principal</p>
+    </div>
+
+    <div class="contenido-principal">
+      <router-outlet></router-outlet>
+    </div>
+
   </div>
+
 </div>
