@@ -1,8 +1,5 @@
-<div class="component">
-  <div class="main-content">
-    <nav class="navbar navbar-dark bg-dark">
-      <div class="container-fluid">
-        <a href="" class="navbar-brand text-info fw-semibold fs-4">SGT</a>
+<div class="component">  
+  <div class="component_menu">
 
         <button class="navbar-toggler" type="button"data-bs-toggle="offcanvas"
         data-bs-target="#menuLateral" aria-label="Abrir menu navegacion">
@@ -42,7 +39,32 @@
           </div>
         </div>
       </div>
-    </nav>
-    <router-outlet></router-outlet>
+
+      <div id="item">
+        <img alt="Nuevo" class="nuevo">
+        <p>Nueva Tarea</p>
+      </div>
+
+      <div id="item">
+        <img alt="TareasPend" class="pendientes">
+        <p>Listas de Tareas</p>
+      </div>
+
+      <div id="item"> 
+        <img alt="Canceladas" class="canceladas">
+        <p>Tareas Canceladas</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="contenedor">
+  <div class="bar">
+    <p>Panel Principal</p>
+  </div>
+
+  <div class="page-body">
+      <app-ingreso-tarea></app-ingreso-tarea>
+  </div>
   </div>
 </div>
