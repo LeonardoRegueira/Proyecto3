@@ -1,10 +1,48 @@
 .fondo{
-    background-color: lightgrey;
+    
     width: 100%;
     height: 100%;
+    
 }
-.titulo {
-    color: white;
-    font-size:35px;
-    padding: 1% 0%;
+
+.card{
+    width: 60%;
+    display: flex;
+    justify-self: center;
+    margin-top: 2%;
+}
+.formulario_titulo{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    margin: 3% auto 0 auto;
+}
+#titulo_formulario{   
+    font-size:16px;
+    margin-right: 16px;
+}
+#titulo_cuerpo{
+    flex-grow: 1;
+    width: auto;
+}
+#descripcion_titulo, #nivel_titulo{
+    margin-left: 5%;
+    font-size: 16px;
+}
+#descripcion_cuerpo, #nivel_cuerpo{
+    width: 90%;
+    display: flex;
+    justify-self: center;
+}
+button{
+    display: block;
+    width: 70%;
+    text-align: center;
+    margin: 0 auto;
+    background-color:cornflowerblue;
+    border: none;
+    border-radius: 15px;
+    margin-top: 3%;
+    margin-bottom: 3%;
 }

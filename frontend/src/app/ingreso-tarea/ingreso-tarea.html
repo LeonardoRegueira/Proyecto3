@@ -1,7 +1,25 @@
-
 <div class="fondo">
-    <div class="titulo bg-dark">
-        <h2>Ingresar nueva tarea</h2>
+
+  <form class="card shadow-sm">
+    <div class="formulario_titulo">
+      <label for="titulo_cuerpo" id="titulo_formulario">Titulo</label>
+      <input type="text" class="form-titulo" id="titulo_cuerpo" placeholder="Ingrese titulo">
     </div>
-<p>ingreso-tarea works!</p>
+    <div class="formulario_cuerpo">
+      <label for="nivel_cuerpo" id="nivel_titulo">Nivel de prioridad</label>
+      <select class="form-control" id="nivel_cuerpo">
+        <option>Bajo</option>
+        <option>Medio</option>
+        <option>Alto</option>
+        <option>Critico</option>
+      </select>
+    </div>
+    <div class="form-descripcion">
+      <label for="descripcion_cuerpo" id="descripcion_titulo">Descripcion</label>
+      <textarea class="form-control" id="descripcion_cuerpo" rows="3"></textarea>
+    </div>
+    <button class="" type="submit" aria-label="none">
+      Enviar
+    </button>
+  </form>
 </div>

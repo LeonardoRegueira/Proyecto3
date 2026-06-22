@@ -9,18 +9,22 @@ export const routes: Routes = [
     },
     {
         path: "home",
-        loadComponent: () => import("./componentes/home/home").then(modulo => modulo.Home)
+        loadComponent: () => import("./componentes/home/home").then(modulo => modulo.Home),
+        title: "Panel principal"
     },
     {
         path: "ingreso-tarea",
-        loadComponent: () => import("../app/ingreso-tarea/ingreso-tarea").then(modulo => modulo.IngresoTarea)
+        loadComponent: () => import("../app/ingreso-tarea/ingreso-tarea").then(modulo => modulo.IngresoTarea),
+        title: "Nueva tarea"
     },
     {
         path: "historial",
-        loadChildren: () => import("./componentes/historial/historal.routes").then(m => m.historialRoutes)
+        loadChildren: () => import("./componentes/historial/historal.routes").then(m => m.historialRoutes),
+        title: "Historial de tareas"
     },
     {
         path: "cancelado",
-        loadComponent: () => import("./componentes/cancelado/cancelado").then(modulo => modulo.Cancelado)
+        loadComponent: () => import("./componentes/cancelado/cancelado").then(modulo => modulo.Cancelado),
+        title: "Tareas canceladas"
     }
 ];
