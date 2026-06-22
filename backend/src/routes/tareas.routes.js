@@ -1,13 +1,17 @@
 //rutas relacionadas con las tareas
 
 const express = require('express');
+const tareasController = require('../controllers/tarea.controller');
 
-const router = express.Router();
+const routerTareas = express.Router();
 
-const { listarTareas, buscarTareaPorId } = require('../controllers/tarea.controller');
+// Rutas compatibles con la estructura propuesta por Juana.
+routerTareas.get('/tareas/todas', tareasController.todasLasTareasController);
+routerTareas.get('/tareas/id/:id', tareasController.buscarTareaPorId);
+routerTareas.get('/tareas/estado/:estado', tareasController.tareasFiltradasEstadoController);
 
-router.get('/', listarTareas);
+// Rutas compatibles con el frontend actual.
+routerTareas.get('/', tareasController.listarTareas);
+routerTareas.get('/:id', tareasController.buscarTareaPorId);
 
-router.get('/:id', buscarTareaPorId);
-
-module.exports = router;
+module.exports = routerTareas;
