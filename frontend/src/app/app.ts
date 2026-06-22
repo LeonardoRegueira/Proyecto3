@@ -7,7 +7,7 @@ import { AppIngresoTareaComponent } from './ingreso-tarea/ingreso-tarea';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, ReactiveFormsModule, AppIngresoTareaComponent], // <-- La agregamos acá también
+  imports: [CommonModule, ReactiveFormsModule, AppIngresoTareaComponent],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
  })
