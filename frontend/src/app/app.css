@@ -1,96 +1,82 @@
-.component {
-  display: flex;
-  min-height: 100vh;
+.component{
+    display: flex;
+    width: 100%;
+    
+}
+.component_menu{ /*cuadro del menu*/
+    width: fit-content;
+    border: 1px #ecf1f7 solid;
+
+}
+.class_title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px #ecf1f7 solid;
+    padding: 9% 0%;
+
+}
+.class_title img{
+    content: url('./ico/icon-app.png');
+    width: 40px;
+    margin-right: 5px;
+}
+.class_title p{
+    font-size:35px;
+    margin-left: 5%;
+}
+.item{
+    display: flex;
+    padding: 13% 0%;
+}
+.item p{
+    width: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+/*iconos del menu*/
+.panel{
+    content: url('./ico/Panel.png');
+}
+.nuevo{
+    content: url('./ico/Nuevo.png');
+}
+.pendientes{
+    content: url('./ico/listas.png');
+}
+.canceladas{
+    content: url('./ico/Canceladas.png');
 }
 
-.component_menu {
-  width: 295px;
-  min-height: 100vh;
-  border-right: 1px solid #ecf1f7;
-  box-sizing: border-box;
-}
 
-.class_title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 1px solid #ecf1f7;
-  padding: 20px 10px;
-}
 
-.class_title img {
-  content: url('./ico/icon-app.png');
-  width: 45px;
-  margin-right: 12px;
-}
 
-.class_title p {
-  margin: 0;
-  font-size: 42px;
-}
 
-.class_menu {
-  width: 100%;
+/*estados menu*/
+.class_menu :hover{
+    background-color: #ecf1f7;
+    cursor: pointer;
 }
+ nav,
+    .offcanvas {
+      background-color: #1e293b;
+    }
+    .navbar-toggler {
+      border: none;
+    }
+    .navbar-toggler:focus {
+      outline: none;
+      box-shadow: none;
+    }
 
-.item {
-  display: flex;
-  align-items: center;
-  padding: 24px 16px;
-  text-decoration: none;
-  color: inherit;
-  transition: background-color 0.2s ease;
-}
-
-.item img {
-  width: 36px;
-  margin-right: 16px;
-}
-
-.item p {
-  margin: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 22px;
-}
-
-.item:hover {
-  background-color: #ecf1f7;
-  cursor: pointer;
-}
-
-.panel {
-  content: url('./ico/Panel.png');
-}
-
-.nuevo {
-  content: url('./ico/Nuevo.png');
-}
-
-.pendientes {
-  content: url('./ico/listas.png');
-}
-
-.canceladas {
-  content: url('./ico/Canceladas.png');
-}
-
-.zona-principal {
-  flex: 1;
-  min-height: 100vh;
-}
-
-.bar {
-  background-color: #ecf1f7;
-  padding: 25px 30px;
-}
-
-.bar p {
-  margin: 0;
-  font-size: 34px;
-}
-
-.contenido-principal {
-  padding: 30px;
-  box-sizing: border-box;
+    @media (max-width: 768px) {
+      .navbar-nav > li:hover {
+        background-color: #0dcaf0;
+      }
+    }
+.main-content{
+    width: 100%;
+    display: block;
 }
