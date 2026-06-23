@@ -3,62 +3,7 @@
     width: 100%;
     background-color: lightgrey;
 }
-.component_menu{ /*cuadro del menu*/
-    width: fit-content;
-    border: 1px #ecf1f7 solid;
 
-}
-.class_title{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px #ecf1f7 solid;
-    padding: 9% 0%;
-
-}
-.class_title img{
-    content: url('./ico/icon-app.png');
-    width: 40px;
-    margin-right: 5px;
-}
-.class_title p{
-    font-size:35px;
-    margin-left: 5%;
-}
-.item{
-    display: flex;
-    padding: 13% 0%;
-}
-.item p{
-    width: 100%;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-/*iconos del menu*/
-.panel{
-    content: url('./ico/Panel.png');
-}
-.nuevo{
-    content: url('./ico/Nuevo.png');
-}
-.pendientes{
-    content: url('./ico/listas.png');
-}
-.canceladas{
-    content: url('./ico/Canceladas.png');
-}
-
-
-
-
-
-/*estados menu*/
-.class_menu :hover{
-    background-color: #ecf1f7;
-    cursor: pointer;
-}
  nav,
     .offcanvas {
       background-color: #1e293b;

@@ -1,10 +1,11 @@
-const tareas = require("../src/baseDeDatos");
+ const Tarea = require("../models/tarea.model");
+
 exports.readTodasLasTareasRepository = async () => {
     try {
-        if (tareas.length === 0) {
+        if (Tarea.length === 0) {
             return "No hay ninguna tarea"
         }
-        return tareas;
+        return Tarea;
     }
     catch (error) {
         console.log("Error en devolver todas las tareas - Capa Repository", error)
@@ -14,7 +15,7 @@ exports.readTodasLasTareasRepository = async () => {
 exports.readTareasFiltradasSegunEstadoRepository = async (estadoBuscado) => {
     try {
         if (estadoBuscado === "pendiente") {
-            const listaPendientes = tareas.filter(
+            const listaPendientes = Tarea.filter(
                 element => element.estado === "pendiente"
             );
             if (listaPendientes.length === 0) {
@@ -23,7 +24,7 @@ exports.readTareasFiltradasSegunEstadoRepository = async (estadoBuscado) => {
             return listaPendientes;
         }
         if (estadoBuscado === "en progreso") {
-            const listaEnProgreso = tareas.filter(
+            const listaEnProgreso = Tarea.filter(
                 element => element.estado === "en progreso"
             );
             if (listaEnProgreso.length === 0) {
@@ -32,7 +33,7 @@ exports.readTareasFiltradasSegunEstadoRepository = async (estadoBuscado) => {
             return listaEnProgreso;
         }
         else if (estadoBuscado === "completada") {
-            const listaCompletadas = tareas.filter(
+            const listaCompletadas = Tarea.filter(
                 element => element.estado === "completada"
             );
             if (listaCompletadas.length === 0) {
@@ -48,7 +49,7 @@ exports.readTareasFiltradasSegunEstadoRepository = async (estadoBuscado) => {
 exports.readBuscarTareaFiltradaSegunIdRepository = async (idBuscado) => {
 
     try {
-        const tareaBuscadaId = tareas.find(
+        const tareaBuscadaId = Tarea.find(
             element => element.id === idBuscado);
         if (!tareaBuscadaId) {
             return "No hay ninguna tarea con ese id: " + idBuscado
@@ -62,8 +63,8 @@ exports.readBuscarTareaFiltradaSegunIdRepository = async (idBuscado) => {
 exports.createNuevaTareaRepository = async (nueva_tarea) => {
     try {
         console.log("Hola desde crear - Capa Repository")
-        tareas.push(nueva_tarea);
-        return tareas;
+        Tarea.push(nueva_tarea);
+        return Tarea;
     }
     catch (error) {
         console.log("Error en crear nueva tarea - Capa Repository", error)
@@ -71,11 +72,11 @@ exports.createNuevaTareaRepository = async (nueva_tarea) => {
 }
 exports.deleteTareaRepository = async (idPorEleminar) => {
     try {
-        const ubicacion = tareas.findIndex(
+        const ubicacion = Tarea.findIndex(
             element => element.id === idPorEleminar);
         if (ubicacion >= 0) {
-            tareas.splice(ubicacion, 1)
-            return tareas;
+            Tarea.splice(ubicacion, 1)
+            return Tarea;
         } else {
             return []
         }
@@ -87,11 +88,11 @@ exports.deleteTareaRepository = async (idPorEleminar) => {
 //actulizar
 exports.updateTareaRepository = async (tareaModificada) => {
     try {
-        let indice = tareas.findIndex(
+        let indice = Tarea.findIndex(
             element => element.id === tareaModificada.id);
         if (indice >= 0) {
-            tareas[indice] = tareaModificada;
-            return tareas
+            Tarea[indice] = tareaModificada;
+            return Tarea
         }
         else {
             return []
