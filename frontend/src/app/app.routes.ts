@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { Home } from './componentes/home/home';
 
 export const routes: Routes = [
     {
@@ -13,7 +12,7 @@ export const routes: Routes = [
     },
     {
         path: "ingreso-tarea",
-        loadComponent: () => import("../app/ingreso-tarea/ingreso-tarea").then(modulo => modulo.IngresoTarea)
+        loadComponent: () => import("./ingreso-tarea/ingreso-tarea").then(modulo => modulo.AppIngresoTareaComponent)
     },
     {
         path: "historial",
