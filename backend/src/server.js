@@ -1,9 +1,15 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
+require('dotenv').config();
+
+//CORS permite que el frontend pueda enviar peticiones HTTP al backend. (diferentes puertos )
+const cors= require ('cors');
+const express = require('express'); 
+const routerTareas = require('./routes/tareas.routes');
+
+const conectarDB = require('./config/database');
 
 const app = express();
-const PUERTO = 3000;
+const PORT = process.env.PORT || 3000;
+const hostname = '127.0.0.1';
 
 app.use(cors());
 app.use(express.json());
@@ -38,6 +44,12 @@ app.post('/api/tareas', async (req, res) => {
   }
 });
 
-app.listen(PUERTO, () => {
-  console.log(`Servidor escuchando en http://localhost:${PUERTO}`);
-});
+const iniciarServidor = async () => {
+  await conectarDB();
+
+  app.listen(PORT, () => {
+    console.log(`Servidor corriendo en http://${hostname}:${PORT}`);
+  });
+};
+
+iniciarServidor();

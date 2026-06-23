@@ -1,31 +1,19 @@
-const tareas = require('../src/baseDeDatos');
+// Import MongoDB
+const Tarea = require('../models/tarea.model');
 
-const todasLasTareas = () => {
-  if (tareas.length === 0) {
-    return 'No hay ninguna tarea';
-  }
-
-  return tareas;
+// Busca y devuelve todas las tareas guardadas en MongoDB
+const todasLasTareas = async () => {
+  return await Tarea.find();
 };
 
-const tareasFiltradasSegunId = (idBuscado) => {
-  const tareaBuscadaId = tareas.find((tarea) => tarea.id === idBuscado);
-
-  if (!tareaBuscadaId) {
-    return undefined;
-  }
-
-  return tareaBuscadaId;
+// Busca una tarea por su campo id numérico
+const tareasFiltradasSegunId = async (idBuscado) => {
+  return await Tarea.findOne({ id: idBuscado });
 };
 
-const tareasFiltradasSegunEstado = (estadoBuscado) => {
-  const tareasFiltradas = tareas.filter((tarea) => tarea.estado === estadoBuscado);
-
-  if (tareasFiltradas.length === 0) {
-    return [];
-  }
-
-  return tareasFiltradas;
+// Busca todas las tareas que tengan el estado indicado
+const tareasFiltradasSegunEstado = async (estadoBuscado) => {
+  return await Tarea.find({ estado: estadoBuscado });
 };
 
 module.exports = {

@@ -1,0 +1,7 @@
+
+> backend@1.0.0 start
+> node src/server.js
+
+◇ injected env (2) from .env // tip: ◈ encrypted .env [www.dotenvx.com]
+MongoDB conectado
+Servidor corriendo en http://127.0.0.1:3000
