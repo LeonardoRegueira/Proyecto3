@@ -1,12 +1,16 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet, RouterLink, RouterLinkActive} from '@angular/router';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms'; // <-- Sumamos esta por las dudas
+import { AppIngresoTareaComponent } from './ingreso-tarea/ingreso-tarea'; 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink, RouterLinkActive],
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, AppIngresoTareaComponent],
   templateUrl: './app.html',
-  styleUrl: './app.css'
-})
+  styleUrls: ['./app.css']
+ })
 export class App {
-  protected readonly title = signal('frontend');
+  title = 'frontend';
 }

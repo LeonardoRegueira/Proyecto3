@@ -14,15 +14,35 @@ const hostname = '127.0.0.1';
 app.use(cors());
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Backend funcionando');
+mongoose.connect('mongodb://localhost:27017/proyecto3_db')
+  .then(() => console.log('¡MongoDB conectado!'))
+  .catch(err => console.error('Error al conexion:', err));
+
+// 1. EL MODELO (El molde de la tarea)
+const Tarea = mongoose.model('Tarea', new mongoose.Schema({
+  titulo: String,
+  descripcion: String,
+  prioridad: String
+}));
+
+app.get('/api/tareas', async (req, res) => {
+  try {
+    const listaTareas = await Tarea.find(); 
+    res.status(200).json(listaTareas);
+  } catch (error) {
+    res.status(500).json({ error: 'Error al recibir la tarea' });
+  }
 });
 
-// /tareas mantiene compatibilidad con el frontend actual.
-app.use('/tareas', routerTareas);
-
-// /api mantiene compatibilidad con la estructura de rutas propuesta por Juana.
-app.use('/api', routerTareas);
+app.post('/api/tareas', async (req, res) => {
+  try {
+    const nuevaTarea = new Tarea(req.body);
+    await nuevaTarea.save();
+    res.status(201).json({ mensaje: 'Tarea guardada' });
+  } catch (error) {
+    res.status(500).json({ error: 'Error al guardar' });
+  }
+});
 
 const iniciarServidor = async () => {
   await conectarDB();

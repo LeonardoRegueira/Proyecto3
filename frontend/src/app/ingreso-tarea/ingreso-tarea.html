@@ -1,7 +1,61 @@
-
-<div class="fondo">
-    <div class="titulo bg-dark">
-        <h2>Ingresar nueva tarea</h2>
+<div class="card-formulario">
+  <div class="card-header">
+    <h3>Ingreso de Nueva Tarea</h3>
+  </div>
+  
+  <div class="card-body">
+    <div *ngIf="mensajeExito" class="alert alert-success">
+      Tarea registrada con éxito!
     </div>
-<p>ingreso-tarea works!</p>
+
+    <form [formGroup]="tareaForm" (ngSubmit)="onSubmit()">
+      
+      <div class="form-group">
+        <label for="titulo">Título de la Tarea</label>
+        <input 
+          id="titulo" 
+          type="text" 
+          formControlName="titulo" 
+          class="form-control"
+          placeholder="Ej: Diseñar la base de datos"
+          [class.is-invalid]="tareaForm.get('titulo')?.touched && tareaForm.get('titulo')?.invalid"
+        >
+        <div *ngIf="tareaForm.get('titulo')?.touched && tareaForm.get('titulo')?.errors?.['required']" class="error-feedback">
+          El título es obligatorio.
+        </div>
+        <div *ngIf="tareaForm.get('titulo')?.touched && tareaForm.get('titulo')?.errors?.['minlength']" class="error-feedback">
+          Debe tener al menos 3 caracteres.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="descripcion">Descripción</label>
+        <textarea 
+          id="descripcion" 
+          formControlName="descripcion" 
+          class="form-control"
+          rows="3"
+          placeholder="Escribí los detalles acá..."
+          [class.is-invalid]="tareaForm.get('descripcion')?.touched && tareaForm.get('descripcion')?.invalid"
+        ></textarea>
+        <div *ngIf="tareaForm.get('descripcion')?.touched && tareaForm.get('descripcion')?.invalid" class="error-feedback">
+          La descripción es obligatoria.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="prioridad">Prioridad</label>
+        <select id="prioridad" formControlName="prioridad" class="form-control select-control">
+          <option value="Baja">Baja</option>
+          <option value="Media">Media</option>
+          <option value="Alta">Alta</option>
+        </select>
+      </div>
+
+      <button type="submit" [disabled]="tareaForm.invalid" class="btn-submit">
+        Guardar Tarea
+      </button>
+
+    </form>
+  </div>
 </div>
