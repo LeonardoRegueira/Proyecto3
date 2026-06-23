@@ -1,22 +1,22 @@
 const tareasRepository = require('../repository/tareas.repository');
 
-const listarTareas = () => {
-  return tareasRepository.todasLasTareas();
+// Solicita todas las tareas
+const listarTareas = async () => {
+  return await tareasRepository.todasLasTareas();
 };
 
-const buscarTareaPorId = (idBuscado) => {
-  return tareasRepository.tareasFiltradasSegunId(idBuscado);
+// Solicita tarea según su id
+const buscarTareaPorId = async (idBuscado) => {
+  return await tareasRepository.tareasFiltradasSegunId(idBuscado);
 };
 
-const listarTareasPorEstado = (estadoBuscado) => {
-  return tareasRepository.tareasFiltradasSegunEstado(estadoBuscado);
+// Solicita las tareas que coincidan con un estado
+const listarTareasPorEstado = async (estadoBuscado) => {
+  return await tareasRepository.tareasFiltradasSegunEstado(estadoBuscado);
 };
 
 module.exports = {
   listarTareas,
   buscarTareaPorId,
-  listarTareasPorEstado,
-  todasTareasService: listarTareas,
-  tareasFiltradasPorIdService: buscarTareaPorId,
-  tareasFiltradasPorEstadoService: listarTareasPorEstado
+  listarTareasPorEstado
 };
