@@ -1,133 +1,51 @@
 .component {
   display: flex;
+  width: 100%;
   min-height: 100vh;
-  width: 100%;
-  background-color: #f8fafc;
+  background-color: lightgrey;
 }
 
-.component_menu {
-  width: 260px;
-  min-width: 260px;
-  background-color: #1e293b;
-  color: #f8fafc;
-  border-right: 1px solid #cbd5e1;
-}
-
-.class_title {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 24px 20px;
-  color: #f8fafc;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(248, 250, 252, 0.18);
-}
-
-.class_title img {
-  content: url('./ico/icon-app.png');
-  width: 40px;
-  height: 40px;
-}
-
-.class_title p {
-  margin: 0;
-  font-size: 28px;
-  font-weight: 700;
-}
-
-.class_menu {
-  display: flex;
-  flex-direction: column;
-  padding: 16px 12px;
-  gap: 8px;
-}
-
-.menu-link {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-height: 48px;
-  padding: 10px 12px;
-  color: #e2e8f0;
-  text-decoration: none;
-  border-radius: 8px;
-}
-
-.menu-link:hover,
-.menu-link.active {
-  background-color: #0f766e;
-  color: #ffffff;
-}
-
-.menu-link img {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  flex: 0 0 28px;
-}
-
-.menu-link span {
-  line-height: 1.2;
-}
-
-.panel {
-  content: url('./ico/Panel.png');
-}
-
-.nuevo {
-  content: url('./ico/Nuevo.png');
-}
-
-.pendientes {
-  content: url('./ico/listas.png');
-}
-
-.canceladas {
-  content: url('./ico/Canceladas.png');
-}
-
-.contenedor {
-  width: 100%;
-  min-width: 0;
-}
-
-.bar {
-  background-color: #ecf1f7;
-  width: 100%;
-  padding: 16px 24px;
-}
-
-.bar p {
-  margin: 0;
-  font-size: 32px;
-}
-
-.page-body,
 .main-content {
   width: 100%;
+  display: block;
+}
+
+nav,
+.offcanvas {
+  background-color: #1e293b;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.encabezado_titulo {
+  color: white;
+  margin-left: 2%;
+  font-size: 35px;
+  padding: 1% 0%;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  color: #0dcaf0;
 }
 
 @media (max-width: 768px) {
-  .component {
-    flex-direction: column;
+  .encabezado_titulo {
+    font-size: 22px;
   }
 
-  .component_menu {
-    width: 100%;
-    min-width: 0;
+  .navbar-nav > li:hover {
+    background-color: #0dcaf0;
   }
 
-  .class_title {
-    padding: 16px;
-  }
-
-  .class_menu {
-    flex-direction: row;
-    overflow-x: auto;
-    padding: 10px;
-  }
-
-  .menu-link {
-    min-width: 136px;
+  .navbar-nav > li:hover .nav-link {
+    color: #1e293b;
   }
 }
