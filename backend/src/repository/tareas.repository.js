@@ -16,8 +16,9 @@ const tareasFiltradasSegunEstado = async (estadoBuscado) => {
   return await Tarea.find({ estado: estadoBuscado });
 };
 
+
 module.exports = {
   todasLasTareas,
   tareasFiltradasSegunId,
-  tareasFiltradasSegunEstado
+  tareasFiltradasSegunEstado,
 };

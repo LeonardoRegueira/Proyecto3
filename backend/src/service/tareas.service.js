@@ -14,7 +14,7 @@ const buscarTareaPorId = async (idBuscado) => {
 const listarTareasPorEstado = async (estadoBuscado) => {
   return await tareasRepository.tareasFiltradasSegunEstado(estadoBuscado);
 };
-
+                                                                                                                                                                              
 module.exports = {
   listarTareas,
   buscarTareaPorId,
