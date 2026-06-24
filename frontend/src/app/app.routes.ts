@@ -1,5 +1,4 @@
-import { Routes } from '@angular/router';
-import { Home } from './componentes/home/home';
+import { Routes } from "@angular/router";
 
 export const routes: Routes = [
     {
@@ -7,11 +6,7 @@ export const routes: Routes = [
         redirectTo: "home",
         pathMatch: "full"
     },
-    {
-        path: "home",
-        loadComponent: () => import("./componentes/home/home").then(modulo => modulo.Home),
-        title: "Panel principal"
-    },
+
     {
         path: "ingreso-tarea",
         loadComponent: () => import("../app/ingreso-tarea/ingreso-tarea").then(modulo => modulo.IngresoTarea),

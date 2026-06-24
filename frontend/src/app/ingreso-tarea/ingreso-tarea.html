@@ -3,11 +3,11 @@
   <form class="card shadow-sm" (ngSubmit)="guardar()">
     <div class="formulario_titulo">
       <label for="titulo_cuerpo" id="titulo_formulario">Titulo</label>
-      <input [(ngModel)]="tarea.titulo" type="text" class="form-titulo" id="titulo_cuerpo" placeholder="Ingrese titulo">
+      <input [(ngModel)]="titulo" name="titulo" type="text" class="form-titulo" id="titulo_cuerpo" placeholder="Ingrese titulo">
     </div>
     <div class="formulario_cuerpo">
       <label for="nivel_cuerpo" id="nivel_titulo">Nivel de prioridad</label>
-      <select [(ngModel)]="tarea.nivel_prioridad" class="form-control" id="nivel_cuerpo">
+      <select [(ngModel)]="nivel_prioridad" name="nivel_prioridad" class="form-control" id="nivel_cuerpo">
         <option>Bajo</option>
         <option>Medio</option>
         <option>Alto</option>
@@ -16,9 +16,9 @@
     </div>
     <div class="form-descripcion">
       <label for="descripcion_cuerpo" id="descripcion_titulo">Descripcion</label>
-      <textarea [(ngModel)]="tarea.descripcion" class="form-control" id="descripcion_cuerpo" rows="3"></textarea>
+      <textarea [(ngModel)]="descripcion" name="descripcion" class="form-control" id="descripcion_cuerpo" rows="3"></textarea>
     </div>
-    <button class="" type="submit" aria-label="none">
+    <button type="submit">
       Enviar
     </button>
   </form>
