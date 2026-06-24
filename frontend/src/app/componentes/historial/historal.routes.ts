@@ -26,5 +26,15 @@ export const historialRoutes: Routes = [
     {
         path: "completos",
         loadComponent: () => import("../historial/completos/completos").then(modulo => modulo.Completos)
-    }]}
+    },
+    {
+        path: "detalle/:id",
+        loadComponent:()=> import("./detalle/detalle").then(modulo=>modulo.Detalle)
+    },
+    {
+        path: "modificar/:id",
+        loadComponent:()=> import("../modificar/modificar").then(modulo=>modulo.Modificar)
+    }
+
+]}
 ]

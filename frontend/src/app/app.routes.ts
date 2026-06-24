@@ -21,10 +21,6 @@ export const routes: Routes = [
         path: "historial",
         loadChildren: () => import("./componentes/historial/historal.routes").then(m => m.historialRoutes),
         title: "Historial de tareas"
-    },
-    {
-        path: "cancelado",
-        loadComponent: () => import("./componentes/cancelado/cancelado").then(modulo => modulo.Cancelado),
-        title: "Tareas canceladas"
     }
+
 ];

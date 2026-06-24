@@ -1,6 +1,6 @@
 <div class="fondo">
 
-  <form class="card shadow-sm">
+  <form class="card shadow-sm" (ngSubmit)="guardar()">
     <div class="formulario_titulo">
       <label for="titulo_cuerpo" id="titulo_formulario">Titulo</label>
       <input [(ngModel)]="tarea.titulo" type="text" class="form-titulo" id="titulo_cuerpo" placeholder="Ingrese titulo">

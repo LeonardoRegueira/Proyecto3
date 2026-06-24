@@ -1,1 +1,13 @@
-<p>pendientes works!</p>
+<div class="listaTodos">
+        <div class="tickets" *ngFor="let listaPendientes of listaTareasPendientes">
+            <div class="card shadow-sm col-4">
+                <div class="card-body">
+                    <h5>{{listaPendientes.titulo}}</h5>
+                    <p class="descripcion">{{listaPendientes.descripcion}}</p>
+                    <p>{{listaPendientes.nivel_prioridad}}</p>
+                    <p>{{listaPendientes.estado}}</p>
+                    <button (click)= "detalles(listaPendientes.id)">Ver detalles</button>
+                </div>
+            </div>
+        </div>
+</div>

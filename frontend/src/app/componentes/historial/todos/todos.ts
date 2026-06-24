@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ServicioConexion } from '../../../service/servicio-conexion';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-todos',
   imports: [CommonModule],
@@ -7,49 +10,14 @@ import { CommonModule } from '@angular/common';
   styleUrl: './todos.css',
 })
 export class Todos {
-
-  listaTodos = [
-    {
-      id: 1,
-      titulo: "Primera tarea",
-      descripcion: "Lorem ipsum, dolor sit amet consectetur adipisicing elit",
-      estado: "pendiente"
-    },
-    {
-      id: 2,
-      titulo: "Segunda tarea",
-      descripcion: "Lorem ipsum, dolor sit amet consectetur adipisicing elit",
-      estado: "en progreso"
-    },
-    {
-      id: 3,
-      titulo: "Tercera tarea",
-      descripcion: "Lorem ipsum, dolor sit amet consectetur adipisicing elit",
-      estado: "completada"
-    },
-    {
-      id: 4,
-      titulo: "Cuarta tarea",
-      descripcion: "Lorem ipsum, dolor sit amet consectetur adipisicing elit",
-      estado: "pendiente"
-    },
-    {
-      id: 5,
-      titulo: "Quinta tarea",
-      descripcion: "Lorem ipsum, dolor sit amet consectetur adipisicing elit",
-      estado: "en progreso"
-    },
-    {
-      id: 6,
-      titulo: "Sexta tarea",
-      descripcion: "Lorem ipsum, dolor sit amet consectetur adipisicing elit",
-      estado: "completada"
-    }
-  ]
-  historialModificacion=[
-    {
-      fecha:"20-10-2026",
-      hora:"15:26"
-    }
-  ]
+  constructor(private serviceConexion: ServicioConexion, private router : Router){}
+  
+  listaTareasTodas: any;
+  leerTodasLasTareas(){
+    this.serviceConexion.leerTodasLasTareas()
+    .subscribe(datos=>{this.listaTareasTodas = datos})
+  }
+  detalles(id:number){
+    this.router.navigate(["/detalle", id]);
+  }
 }

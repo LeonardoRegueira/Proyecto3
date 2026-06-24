@@ -32,12 +32,12 @@ export class ServicioConexion {
     return this.httpClient.get<Pendientes>(`${this.url}/tareas/pendiente`);
   }
   public leerLasTareasEnProgreso(): Observable<Progreso> {
-    return this.httpClient.get<Todos>(`${this.url}/tareas/estado/en%20progreso`);
+    return this.httpClient.get<Progreso>(`${this.url}/tareas/estado/en%20progreso`);
   }
-  public leerLasTareasCompletos(completos: string): Observable<Completos> {
+  public leerLasTareasCompletos(): Observable<Completos> {
     return this.httpClient.get<Completos>(`${this.url}/tareas/estado/completada`);
   }
-  public leerLasTareasSegunId(id_buscado: Number): Observable<Progreso> {
+  public leerLasTareasSegunId(id_buscado: Number): Observable<Todos> {
     return this.httpClient.get<Todos>(`${this.url}/id/${id_buscado}`);
   }
 }
