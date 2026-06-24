@@ -1,3 +1,22 @@
 *{
     margin: 0%;
 }
+
+.listaTodos{
+    margin-top: 1%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 15px;
+    width: 100%;
+}
+
+.tickets{
+    flex: 0 0 23%;
+}
+
+.listaTodos .card{
+    width: 100%;
+    height: 100%;
+}

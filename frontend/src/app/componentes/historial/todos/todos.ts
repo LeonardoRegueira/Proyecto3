@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TareaService } from '../../../services/tarea.service';
+import { Tarea, TareaService } from '../../../services/tarea.service';
 
 @Component({
   selector: 'app-todos',
@@ -10,7 +10,7 @@ import { TareaService } from '../../../services/tarea.service';
 })
 export class Todos implements OnInit {
 
-  listaTodos: any[] = [];
+  listaTodos: Tarea[] = [];
   cargando = true;
   errorMensaje = '';
 
@@ -19,7 +19,7 @@ export class Todos implements OnInit {
   ngOnInit(): void {
     this.tareaService.listarTareas().subscribe({
       next: (respuesta) => {
-        this.listaTodos = respuesta as any[];
+        this.listaTodos = respuesta;
         this.cargando = false;
       },
       error: (error) => {

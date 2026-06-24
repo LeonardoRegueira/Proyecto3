@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { TareaService, Tarea } from '../servicios/tarea'; 
+import { TareaService, Tarea } from '../services/tarea.service';
 
 @Component({
   selector: 'app-ingreso-tarea',
@@ -35,7 +35,7 @@ export class AppIngresoTareaComponent implements OnInit {
         titulo: this.tareaForm.value.titulo.trim(),
         descripcion: this.tareaForm.value.descripcion.trim(),
         prioridad: this.tareaForm.value.prioridad,
-        estado: 'Pendiente',
+        estado: 'pendiente',
         fecha_creacion: fechaActual
       };
 
@@ -45,7 +45,7 @@ export class AppIngresoTareaComponent implements OnInit {
           this.tareaForm.reset({ prioridad: 'Media' });
           setTimeout(() => this.mensajeExito = false, 3500);
         },
-        error: (err) => console.error('Error al guardar en LocalStorage:', err)
+        error: (err) => console.error('Error al guardar la tarea:', err)
       });
     } else {
       this.tareaForm.markAllAsTouched();

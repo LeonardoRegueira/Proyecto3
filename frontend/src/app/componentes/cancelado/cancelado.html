@@ -2,5 +2,26 @@
     <div class="titulo bg-dark">
         <h2>Tareas canceladas</h2>
     </div>
-    <p>cancelado works!</p>
+
+    <div class="listaTodos">
+
+      <p *ngIf="cargando">Cargando tareas canceladas...</p>
+
+      <p *ngIf="errorMensaje">{{ errorMensaje }}</p>
+
+      <p *ngIf="!cargando && tareasCanceladas.length === 0">
+        No hay tareas canceladas.
+      </p>
+
+      <div class="tickets" *ngFor="let tarea of tareasCanceladas">
+        <div class="card shadow-sm col-4">
+          <div class="card-body">
+            <h5>{{ tarea.titulo }}</h5>
+            <p class="descripcion">{{ tarea.descripcion }}</p>
+            <p>{{ tarea.estado }}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
 </div>

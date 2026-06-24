@@ -1,1 +1,21 @@
-<p>pendientes works!</p>
+<div class="listaTodos">
+
+  <p *ngIf="cargando">Cargando tareas pendientes...</p>
+
+  <p *ngIf="errorMensaje">{{ errorMensaje }}</p>
+
+  <p *ngIf="!cargando && tareasPendientes.length === 0">
+    No hay tareas pendientes.
+  </p>
+
+  <div class="tickets" *ngFor="let tarea of tareasPendientes">
+    <div class="card shadow-sm col-4">
+      <div class="card-body">
+        <h5>{{ tarea.titulo }}</h5>
+        <p class="descripcion">{{ tarea.descripcion }}</p>
+        <p>{{ tarea.estado }}</p>
+      </div>
+    </div>
+  </div>
+
+</div>
