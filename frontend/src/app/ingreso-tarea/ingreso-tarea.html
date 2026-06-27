@@ -1,56 +1,16 @@
 <div class="fondo">
-  <form class="card shadow-sm" [formGroup]="tareaForm" (ngSubmit)="onSubmit()">
-    <div *ngIf="mensajeExito" class="alert alert-success m-3">
-      Tarea registrada con exito.
-    </div>
 
+  <form class="card shadow-sm" (ngSubmit)="guardar()">
     <div class="formulario_titulo">
       <label for="titulo_cuerpo" id="titulo_formulario">Titulo</label>
-      <input
-        type="text"
-        class="form-control form-titulo"
-        id="titulo_cuerpo"
-        placeholder="Ingrese titulo"
-        formControlName="titulo"
-        [class.is-invalid]="tareaForm.get('titulo')?.touched && tareaForm.get('titulo')?.invalid"
-      >
+      <input [(ngModel)]="titulo" name="titulo" type="text" class="form-titulo" id="titulo_cuerpo" placeholder="Ingrese titulo">
     </div>
-
-    <div
-      *ngIf="tareaForm.get('titulo')?.touched && tareaForm.get('titulo')?.invalid"
-      class="text-danger small mx-auto mt-1 form-error"
-    >
-      El titulo es obligatorio y debe tener al menos 3 caracteres.
-    </div>
-
-    <div class="formulario_cuerpo">
-      <label for="nivel_cuerpo" id="nivel_titulo">Nivel de prioridad</label>
-      <select class="form-control" id="nivel_cuerpo" formControlName="prioridad">
-        <option value="Baja">Bajo</option>
-        <option value="Media">Medio</option>
-        <option value="Alta">Alto</option>
-      </select>
-    </div>
-
+    
     <div class="form-descripcion">
       <label for="descripcion_cuerpo" id="descripcion_titulo">Descripcion</label>
-      <textarea
-        class="form-control"
-        id="descripcion_cuerpo"
-        rows="3"
-        formControlName="descripcion"
-        [class.is-invalid]="tareaForm.get('descripcion')?.touched && tareaForm.get('descripcion')?.invalid"
-      ></textarea>
+      <textarea [(ngModel)]="descripcion" name="descripcion" class="form-control" id="descripcion_cuerpo" rows="3"></textarea>
     </div>
-
-    <div
-      *ngIf="tareaForm.get('descripcion')?.touched && tareaForm.get('descripcion')?.invalid"
-      class="text-danger small mx-auto mt-1 form-error"
-    >
-      La descripcion es obligatoria.
-    </div>
-
-    <button class="btn btn-primary" type="submit" [disabled]="tareaForm.invalid">
+    <button type="submit">
       Enviar
     </button>
   </form>

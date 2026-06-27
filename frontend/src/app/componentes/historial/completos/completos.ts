@@ -1,6 +1,7 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Tarea, TareaService } from '../../../services/tarea.service';
+import { ServicioConexion } from '../../../service/servicio-conexion';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-completos',
@@ -8,26 +9,17 @@ import { Tarea, TareaService } from '../../../services/tarea.service';
   templateUrl: './completos.html',
   styleUrl: './completos.css',
 })
-export class Completos implements OnInit {
-
-  tareasCompletadas: Tarea[] = [];
-  cargando = true;
-  errorMensaje = '';
-
-  constructor(private tareaService: TareaService) {}
-
-  ngOnInit(): void {
-    this.tareaService.listarTareasPorEstado('completada').subscribe({
-      next: (respuesta) => {
-        this.tareasCompletadas = respuesta;
-        this.cargando = false;
-      },
-      error: (error) => {
-        console.error('Error al obtener tareas completadas:', error);
-        this.errorMensaje = 'No se pudieron cargar las tareas completadas';
-        this.cargando = false;
-      }
-    });
+export class Completos implements OnInit{
+  constructor(private serviceConexion: ServicioConexion, private router : Router){}
+    listaTareaCompletas: any=[];
+    leerTodasLasTareas() {
+      this.serviceConexion.leerLasTareasCompletos()
+        .subscribe(datos => { this.listaTareaCompletas = datos })
+    }
+    ngOnInit() {
+    this.leerTodasLasTareas();
   }
-
+  detalles(id:number){
+    this.router.navigate(["/historial/detalle", id]);
+  }
 }

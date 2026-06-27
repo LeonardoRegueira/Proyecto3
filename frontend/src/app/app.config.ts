@@ -1,10 +1,9 @@
-import { provideHttpClient } from '@angular/common/http';
-import {
-  ApplicationConfig,
-  provideBrowserGlobalErrorListeners,
-  provideZoneChangeDetection
-} from '@angular/core';
+import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { bootstrapApplication } from '@angular/platform-browser';
+
+import { provideHttpClient } from '@angular/common/http';
+
 import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {

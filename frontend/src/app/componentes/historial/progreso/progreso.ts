@@ -1,6 +1,7 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Tarea, TareaService } from '../../../services/tarea.service';
+import { ServicioConexion } from '../../../service/servicio-conexion';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-progreso',
@@ -9,25 +10,16 @@ import { Tarea, TareaService } from '../../../services/tarea.service';
   styleUrl: './progreso.css',
 })
 export class Progreso implements OnInit {
-
-  tareasEnProgreso: Tarea[] = [];
-  cargando = true;
-  errorMensaje = '';
-
-  constructor(private tareaService: TareaService) {}
-
-  ngOnInit(): void {
-    this.tareaService.listarTareasPorEstado('en progreso').subscribe({
-      next: (respuesta) => {
-        this.tareasEnProgreso = respuesta;
-        this.cargando = false;
-      },
-      error: (error) => {
-        console.error('Error al obtener tareas en progreso:', error);
-        this.errorMensaje = 'No se pudieron cargar las tareas en progreso';
-        this.cargando = false;
-      }
-    });
+  constructor(private serviceConexion: ServicioConexion, private router : Router){}
+    listaTareasProgreso: any=[];
+    leerTodasLasTareas() {
+      this.serviceConexion.leerLasTareasEnProgreso()
+        .subscribe(datos => { this.listaTareasProgreso = datos })
+    }
+    ngOnInit() {
+    this.leerTodasLasTareas();
   }
-
+  detalles(id:number){
+    this.router.navigate(["/historial/detalle", id]);
+  }
 }

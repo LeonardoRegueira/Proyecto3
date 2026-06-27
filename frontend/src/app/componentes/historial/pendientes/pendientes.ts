@@ -1,6 +1,7 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Tarea, TareaService } from '../../../services/tarea.service';
+import { ServicioConexion } from '../../../service/servicio-conexion';
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-pendientes',
@@ -8,26 +9,17 @@ import { Tarea, TareaService } from '../../../services/tarea.service';
   templateUrl: './pendientes.html',
   styleUrl: './pendientes.css',
 })
-export class Pendientes implements OnInit {
-
-  tareasPendientes: Tarea[] = [];
-  cargando = true;
-  errorMensaje = '';
-
-  constructor(private tareaService: TareaService) {}
-
-  ngOnInit(): void {
-    this.tareaService.listarTareasPorEstado('pendiente').subscribe({
-      next: (respuesta) => {
-        this.tareasPendientes = respuesta;
-        this.cargando = false;
-      },
-      error: (error) => {
-        console.error('Error al obtener tareas pendientes:', error);
-        this.errorMensaje = 'No se pudieron cargar las tareas pendientes';
-        this.cargando = false;
-      }
-    });
+export class Pendientes implements OnInit{
+  constructor(private serviceConexion: ServicioConexion, private router : Router){}
+  listaTareasPendientes: any=[];
+  leerTodasLasTareas() {
+    this.serviceConexion.leerLasTareasPendientes()
+      .subscribe(datos => { this.listaTareasPendientes = datos })
   }
-
+      ngOnInit() {
+    this.leerTodasLasTareas();
+  }
+  detalles(id:number){
+    this.router.navigate(["/historial/detalle", id]);
+  }
 }

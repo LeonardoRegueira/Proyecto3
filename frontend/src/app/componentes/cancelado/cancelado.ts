@@ -6,7 +6,6 @@ import { Tarea, TareaService } from '../../services/tarea.service';
   selector: 'app-cancelado',
   imports: [CommonModule],
   templateUrl: './cancelado.html',
-  styleUrl: './cancelado.css',
 })
 export class Cancelado implements OnInit {
 

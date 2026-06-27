@@ -1,54 +1,39 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { TareaService, Tarea } from '../services/tarea.service';
+import { Component } from '@angular/core';
+import{ServicioConexion} from "../service/servicio-conexion"
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-ingreso-tarea',
-  standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './ingreso-tarea.html', 
-  styleUrls: ['./ingreso-tarea.css']    
+  imports: [FormsModule],
+  templateUrl: './ingreso-tarea.html',
+  styleUrl: './ingreso-tarea.css',
 })
-export class AppIngresoTareaComponent implements OnInit {
-  tareaForm!: FormGroup;
-  mensajeExito: boolean = false;
-
-  constructor(
-    private fb: FormBuilder,
-    private tareaService: TareaService
-  ) {}
-
-  ngOnInit(): void {
-    this.tareaForm = this.fb.group({
-      titulo: ['', [Validators.required, Validators.minLength(3)]],
-      descripcion: ['', [Validators.required]],
-      prioridad: ['Media', [Validators.required]]
-    });
-  }
-
-  onSubmit(): void {
-    if (this.tareaForm.valid) {
-      const fechaActual = new Date().toISOString().split('T')[0];
-
-      const nuevaTarea: Tarea = {
-        titulo: this.tareaForm.value.titulo.trim(),
-        descripcion: this.tareaForm.value.descripcion.trim(),
-        prioridad: this.tareaForm.value.prioridad,
-        estado: 'pendiente',
-        fecha_creacion: fechaActual
-      };
-
-      this.tareaService.agregarTarea(nuevaTarea).subscribe({
-        next: (response) => {
-          this.mensajeExito = true;
-          this.tareaForm.reset({ prioridad: 'Media' });
-          setTimeout(() => this.mensajeExito = false, 3500);
-        },
-        error: (err) => console.error('Error al guardar la tarea:', err)
-      });
-    } else {
-      this.tareaForm.markAllAsTouched();
+export class IngresoTarea {
+  constructor(private servicioConexion: ServicioConexion){}
+  id = 0;
+      titulo = "";
+      descripcion = "";
+      nivel_prioridad = "Baja";
+      estado = "";
+      listaId: number[]=[];
+      public crearId(){
+        this.id= this.listaId.length +1; 
+        this.listaId.push(this.id);
+      }
+  public guardar(){
+    if (!this.titulo.trim() || !this.descripcion.trim()) {
+      alert('Completa el título y la descripción si o si');
+      return;
     }
+    this.crearId();
+    const nueva_tarea={
+      id: this.id,
+      titulo: this.titulo,
+      descripcion: this.descripcion,
+      nivel_prioridad: this.nivel_prioridad,
+      estado: "pendiente"
+    }
+    this.servicioConexion.ingresarTarea(nueva_tarea).subscribe();
   }
+
 }

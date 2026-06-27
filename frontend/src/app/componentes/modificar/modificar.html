@@ -1,0 +1,19 @@
+<div class="fondo">
+    <div class="card shadow-sm">
+        <label for="titulo">Título</label>
+        <input id="titulo" name="titulo" [(ngModel)]="tarea.titulo" type="text">
+
+        <label for="descripcion">Descripcion</label>
+        <textarea id="descripcion" name="descripcion" [(ngModel)]="tarea.descripcion"></textarea>
+
+        
+        <label for="estado">Estado</label>
+        <select id="estado" name="estado" [(ngModel)]="tarea.estado">
+            <option>pendiente</option>
+            <option>en progreso</option>
+            <option>completada</option>
+        </select>
+
+        <button (click)="guardarModificar()">Modificar</button>
+    </div>
+</div>
