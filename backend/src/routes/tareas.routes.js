@@ -12,6 +12,7 @@ routerTareas.get('/tareas/estado/:estado', tareasController.tareasFiltradasEstad
 
 // Rutas compatibles con el frontend actual.
 routerTareas.get('/', tareasController.listarTareas);
+routerTareas.get('/estado/:estado', tareasController.tareasFiltradasEstado);
 routerTareas.get('/:id', tareasController.buscarTareaPorId);
 
 module.exports = routerTareas;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TareaService } from '../../../services/tarea.service';
+import { ServicioConexion } from '../../../service/servicio-conexion';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-todos',
@@ -8,25 +9,18 @@ import { TareaService } from '../../../services/tarea.service';
   templateUrl: './todos.html',
   styleUrl: './todos.css',
 })
-export class Todos implements OnInit {
+export class Todos implements OnInit{
+  constructor(private serviceConexion: ServicioConexion, private router : Router){}
 
-  listaTodos: any[] = [];
-  cargando = true;
-  errorMensaje = '';
-
-  constructor(private tareaService: TareaService) {}
-
-  ngOnInit(): void {
-    this.tareaService.listarTareas().subscribe({
-      next: (respuesta) => {
-        this.listaTodos = respuesta as any[];
-        this.cargando = false;
-      },
-      error: (error) => {
-        console.error('Error al obtener tareas:', error);
-        this.errorMensaje = 'No se pudieron cargar las tareas';
-        this.cargando = false;
-      }
-    });
+  listaTareasTodas: any=[];
+  leerTodasLasTareas(){
+    this.serviceConexion.leerTodasLasTareas()
+    .subscribe(datos=>{this.listaTareasTodas = datos})
+  }
+  ngOnInit() {
+    this.leerTodasLasTareas();
+  }
+  detalles(id:number){
+    this.router.navigate(["/historial/detalle", id]);
   }
 }

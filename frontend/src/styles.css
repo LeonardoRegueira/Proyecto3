@@ -1,3 +1,100 @@
-*{
-    margin: 0%;
+/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+  background-color: #e5e7eb;
+}
+
+.fondo {
+  width: 100%;
+  min-height: calc(100vh - 72px);
+  background-color: #e5e7eb;
+}
+
+.titulo {
+  display: flex;
+  min-height: 68px;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 18px;
+  color: #fff;
+}
+
+.titulo h2 {
+  margin: 0;
+  font-size: clamp(22px, 4vw, 32px);
+  font-weight: 700;
+}
+
+button {
+  max-width: 100%;
+}
+
+.listaTodos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+  width: min(100%, 1180px);
+  margin: 0 auto;
+  padding: 24px;
+  align-items: stretch;
+}
+
+.tickets {
+  min-width: 0;
+}
+
+.listaTodos .card {
+  width: 100% !important;
+  max-width: none;
+  height: 100%;
+  border: 0;
+  border-radius: 8px;
+}
+
+.listaTodos .card-body {
+  display: flex;
+  min-height: 180px;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.listaTodos .card-body h5 {
+  color: #1f2937;
+  font-weight: 700;
+}
+
+.listaTodos .descripcion {
+  flex: 1;
+  color: #4b5563;
+}
+
+.listaTodos button,
+.formulario-detalle button,
+.card button {
+  align-self: flex-start;
+  border: 0;
+  border-radius: 6px;
+  padding: 8px 14px;
+  background-color: #2563eb;
+  color: #fff;
+  font-weight: 600;
+}
+
+.listaTodos button:hover,
+.formulario-detalle button:hover,
+.card button:hover {
+  background-color: #1d4ed8;
+}
+
+@media (max-width: 576px) {
+  .listaTodos {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
 }

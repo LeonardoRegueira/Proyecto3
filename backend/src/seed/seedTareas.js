@@ -1,11 +1,11 @@
-const dns = require('dns');
-dns.setServers(['8.8.8.8', '1.1.1.1']);
-
 require('dotenv').config();
 
+const dns = require('dns');
 const mongoose = require('mongoose');
 
 const Tarea = require('../models/tarea.model');
+
+dns.setServers(['8.8.8.8', '1.1.1.1']);
 
 
 const tareas = [
@@ -22,8 +22,13 @@ const tareas = [
 
 
 const seed = async () => {
+  if (!process.env.MONGODB_URI) {
+    throw new Error('Falta configurar MONGODB_URI en el archivo .env');
+  }
 
-  await mongoose.connect(process.env.MONGODB_URI);
+  await mongoose.connect(process.env.MONGODB_URI, {
+    serverSelectionTimeoutMS: 10000
+  });
 
   await Tarea.deleteMany();
 
@@ -36,4 +41,20 @@ const seed = async () => {
 };
 
 
-seed();
+seed().catch((error) => {
+  console.error('Error al cargar tareas iniciales:', error.message);
+
+  if (error.name === 'MongooseServerSelectionError') {
+    console.error(
+      'Revisa que tu IP actual este habilitada en MongoDB Atlas > Network Access.'
+    );
+  }
+
+  if (error.message.includes('querySrv')) {
+    console.error(
+      'Tambien puede ser un problema de resolucion DNS del registro SRV de Atlas.'
+    );
+  }
+
+  process.exit(1);
+});

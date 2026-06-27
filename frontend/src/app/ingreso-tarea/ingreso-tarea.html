@@ -1,61 +1,17 @@
-<div class="card-formulario">
-  <div class="card-header">
-    <h3>Ingreso de Nueva Tarea</h3>
-  </div>
-  
-  <div class="card-body">
-    <div *ngIf="mensajeExito" class="alert alert-success">
-      Tarea registrada con éxito!
+<div class="fondo">
+
+  <form class="card shadow-sm" (ngSubmit)="guardar()">
+    <div class="formulario_titulo">
+      <label for="titulo_cuerpo" id="titulo_formulario">Titulo</label>
+      <input [(ngModel)]="titulo" name="titulo" type="text" class="form-titulo" id="titulo_cuerpo" placeholder="Ingrese titulo">
     </div>
-
-    <form [formGroup]="tareaForm" (ngSubmit)="onSubmit()">
-      
-      <div class="form-group">
-        <label for="titulo">Título de la Tarea</label>
-        <input 
-          id="titulo" 
-          type="text" 
-          formControlName="titulo" 
-          class="form-control"
-          placeholder="Ej: Diseñar la base de datos"
-          [class.is-invalid]="tareaForm.get('titulo')?.touched && tareaForm.get('titulo')?.invalid"
-        >
-        <div *ngIf="tareaForm.get('titulo')?.touched && tareaForm.get('titulo')?.errors?.['required']" class="error-feedback">
-          El título es obligatorio.
-        </div>
-        <div *ngIf="tareaForm.get('titulo')?.touched && tareaForm.get('titulo')?.errors?.['minlength']" class="error-feedback">
-          Debe tener al menos 3 caracteres.
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="descripcion">Descripción</label>
-        <textarea 
-          id="descripcion" 
-          formControlName="descripcion" 
-          class="form-control"
-          rows="3"
-          placeholder="Escribí los detalles acá..."
-          [class.is-invalid]="tareaForm.get('descripcion')?.touched && tareaForm.get('descripcion')?.invalid"
-        ></textarea>
-        <div *ngIf="tareaForm.get('descripcion')?.touched && tareaForm.get('descripcion')?.invalid" class="error-feedback">
-          La descripción es obligatoria.
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="prioridad">Prioridad</label>
-        <select id="prioridad" formControlName="prioridad" class="form-control select-control">
-          <option value="Baja">Baja</option>
-          <option value="Media">Media</option>
-          <option value="Alta">Alta</option>
-        </select>
-      </div>
-
-      <button type="submit" [disabled]="tareaForm.invalid" class="btn-submit">
-        Guardar Tarea
-      </button>
-
-    </form>
-  </div>
+    
+    <div class="form-descripcion">
+      <label for="descripcion_cuerpo" id="descripcion_titulo">Descripcion</label>
+      <textarea [(ngModel)]="descripcion" name="descripcion" class="form-control" id="descripcion_cuerpo" rows="3"></textarea>
+    </div>
+    <button type="submit">
+      Enviar
+    </button>
+  </form>
 </div>

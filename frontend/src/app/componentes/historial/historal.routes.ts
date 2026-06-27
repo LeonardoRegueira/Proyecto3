@@ -13,18 +13,28 @@ export const historialRoutes: Routes = [
             },
     {
         path: "todos",
-        loadComponent: () => import("../historial/todos/todos").then(modulo => modulo.Todos)
+        loadComponent: () => import("./todos/todos").then(modulo => modulo.Todos)
     },
     {
         path: "pendientes",
-        loadComponent: () => import("../historial/pendientes/pendientes").then(modulo => modulo.Pendientes)
+        loadComponent: () => import("./pendientes/pendientes").then(modulo => modulo.Pendientes)
     },
     {
         path: "progreso",
-        loadComponent: () => import("../historial/progreso/progreso").then(modulo => modulo.Progreso)
+        loadComponent: () => import("./progreso/progreso").then(modulo => modulo.Progreso)
     },
     {
         path: "completos",
-        loadComponent: () => import("../historial/completos/completos").then(modulo => modulo.Completos)
-    }]}
+        loadComponent: () => import("./completos/completos").then(modulo => modulo.Completos)
+    },
+    {
+        path: "detalle/:id",
+        loadComponent:()=> import("./detalle/detalle").then(modulo=>modulo.Detalle)
+    },
+    {
+        path: "modificar/:id",
+        loadComponent:()=> import("../modificar/modificar").then(modulo=>modulo.Modificar)
+    }
+
+]}
 ]

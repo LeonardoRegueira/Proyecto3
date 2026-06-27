@@ -1,102 +1,58 @@
-.component{
+.component {
     display: flex;
     width: 100%;
-    
+    min-height: 100vh;
+    background-color: #e5e7eb;
 }
-.component_menu{ /*cuadro del menu*/
-    width: fit-content;
-    border: 1px #ecf1f7 solid;
 
-}
-.class_title{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px #ecf1f7 solid;
-    padding: 9% 0%;
-
-}
-.class_title img{
-    content: url('./ico/icon-app.png');
-    width: 40px;
-    margin-right: 5px;
-}
-.class_title p{
-    font-size:35px;
-    margin-left: 5%;
-}
-.item{
-    display: flex;
-    padding: 13% 0%;
-}
-.item p{
+.main-content {
     width: 100%;
-    display:flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-/*iconos del menu*/
-.panel{
-    content: url('./ico/Panel.png');
-}
-.nuevo{
-    content: url('./ico/Nuevo.png');
-}
-.pendientes{
-    content: url('./ico/listas.png');
-}
-.canceladas{
-    content: url('./ico/Canceladas.png');
+    min-height: 100vh;
 }
 
-.contenedor{
-    width: 100%;
+nav,
+.offcanvas {
+    background-color: #1e293b;
 }
 
-.bar{
-    background-color: #ecf1f7;
-    height: fit-content;
-    width: 100%;
-    padding: 1% 0%;
-
+.navbar {
+    min-height: 72px;
 }
-.bar p{
+
+.navbar-brand {
+    white-space: nowrap;
+}
+
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .encabezado_titulo {
+    font-size: 22px;
+    max-width: 58vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .navbar-nav > li:hover {
+    background-color: #0dcaf0;
+  }
+
+  .navbar-nav > li:hover .nav-link {
+    color: #1e293b;
+  }
+}
+
+.encabezado_titulo {
+    color: white;
     margin-left: 2%;
-    font-size:35px;
-}
-.page-body {
-    flex: 1;
-    width: 100%;
-    padding: 40px;      
-    box-sizing: border-box;
-    justify-content: flex-start; 
-    align-items: flex-start;
-}
-
-/*estados menu*/
-.class_menu :hover{
-    background-color: #ecf1f7;
-    cursor: pointer;
-}
- nav,
-    .offcanvas {
-      background-color: #1e293b;
-    }
-    .navbar-toggler {
-      border: none;
-    }
-    .navbar-toggler:focus {
-      outline: none;
-      box-shadow: none;
-    }
-
-    @media (max-width: 768px) {
-      .navbar-nav > li:hover {
-        background-color: #0dcaf0;
-      }
-    }
-.main-content{
-    width: 100%;
-    display: block;
+    font-size: 35px;
+    padding: 8px 0;
 }

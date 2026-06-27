@@ -1,21 +1,13 @@
 <div class="listaTodos">
-
-  <p *ngIf="cargando">Cargando tareas...</p>
-
-  <p *ngIf="errorMensaje">{{ errorMensaje }}</p>
-
-  <p *ngIf="!cargando && listaTodos.length === 0">
-    No hay tareas disponibles.
-  </p>
-
-  <div class="tickets" *ngFor="let listaT of listaTodos">
-    <div class="card shadow-sm col-4">
-      <div class="card-body">
-        <h5>{{ listaT.titulo }}</h5>
-        <p class="descripcion">{{ listaT.descripcion }}</p>
-        <p>{{ listaT.estado }}</p>
-      </div>
-    </div>
-  </div>
-
+        <div class="tickets" *ngFor="let listaTodas of listaTareasTodas">
+            <div class="card shadow-sm col-4">
+                <div class="card-body">
+                    <h5>{{listaTodas.titulo}}</h5>
+                    <p class="descripcion">{{listaTodas.descripcion}}</p>
+                    <p>{{listaTodas.nivel_prioridad}}</p>
+                    <p>{{listaTodas.estado}}</p>
+                    <button (click)= "detalles(listaTodas.id)">Ver detalles</button>
+                </div>
+            </div>
+        </div>
 </div>

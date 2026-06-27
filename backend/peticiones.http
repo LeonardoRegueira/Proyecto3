@@ -1,1 +1,17 @@
+### Listar todas las tareas
+GET http://localhost:3000/tareas
 
+### Buscar una tarea por id
+GET http://localhost:3000/tareas/1
+
+### tareas pendientes
+GET http://localhost:3000/tareas/estado/pendiente
+
+### tareas en progreso
+GET http://localhost:3000/tareas/estado/en%20progreso
+
+### tareas completadas
+GET http://localhost:3000/tareas/estado/completada
+
+### tareas canceladas
+GET http://localhost:3000/tareas/estado/cancelada
