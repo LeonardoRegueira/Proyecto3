@@ -6,6 +6,13 @@
         <label for="descripcion">Descripcion</label>
         <textarea id="descripcion" name="descripcion" [(ngModel)]="tarea.descripcion"></textarea>
 
+        <label for="nivel_prioridad">Prioridad</label>
+        <select id="nivel_prioridad" name="nivel_prioridad" [(ngModel)]="tarea.nivel_prioridad">
+            <option value="Baja">Baja</option>
+            <option value="Media">Media</option>
+            <option value="Alta">Alta</option>
+        </select>
+
         
         <label for="estado">Estado</label>
         <select id="estado" name="estado" [(ngModel)]="tarea.estado">

@@ -9,7 +9,7 @@ export const routes: Routes = [
 
     {
         path: "ingreso-tarea",
-        loadComponent: () => import("../app/ingreso-tarea/ingreso-tarea").then(modulo => modulo.IngresoTarea),
+        loadComponent: () => import("./componentes/ingreso-tarea/ingreso-tarea").then(modulo => modulo.IngresoTarea),
         title: "Nueva tarea"
     },
     {

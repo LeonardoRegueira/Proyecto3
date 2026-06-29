@@ -2,7 +2,7 @@
   <div class="formulario-detalle">
         <h5>{{tarea.titulo}}</h5>
         <p>{{tarea.descripcion}}</p>
-        <p>{{tarea.nivel_prioridad}}</p>
+        <p>Prioridad: {{tarea.nivel_prioridad || 'Baja'}}</p>
         <p>{{tarea.estado}}</p>
     <button (click)="modificar(tarea.id)">Modificar</button>
     <button (click)="eliminar(tarea.id)">Eliminar</button>

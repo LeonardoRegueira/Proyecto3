@@ -31,6 +31,16 @@ const tareaSchema = new mongoose.Schema({
 
   },
 
+  nivel_prioridad: {
+
+    type: String,
+
+    enum: ['Baja', 'Media', 'Alta'],
+
+    default: 'Baja'
+
+  },
+
   estado: {
 
     type: String,
