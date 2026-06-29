@@ -1,5 +1,5 @@
 // Import MongoDB
-const Tarea = require('../models/tarea.model');
+const Tarea = require('./models/tarea.model');
 
 // Busca y devuelve todas las tareas guardadas en MongoDB
 const todasLasTareas = async () => {
