@@ -19,7 +19,10 @@ export class Modificar implements OnInit{
  ngOnInit(){
   this.tareaId = Number(this.activeRoute.snapshot.params["id"]);
   this.serviceConexion.leerLasTareasSegunId(this.tareaId)
-  .subscribe(datos=>{this.tarea=datos})
+  .subscribe(datos=>{
+    this.tarea=datos;
+    this.tarea.nivel_prioridad = this.tarea.nivel_prioridad || 'Baja';
+  })
   
  }
  guardarModificar(){

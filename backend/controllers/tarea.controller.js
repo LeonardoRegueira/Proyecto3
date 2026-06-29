@@ -55,8 +55,62 @@ const tareasFiltradasEstado = async (req, res) => {
   }
 };
 
+const crearTarea = async (req, res) => {
+  try {
+    const nuevaTarea = await tareasService.crearTarea(req.body);
+
+    res.status(201);
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify(nuevaTarea));
+
+  } catch (error) {
+    res.status(400);
+    res.setHeader('Content-Type', 'application/json');
+    res.send(
+      JSON.stringify({
+        mensaje: 'Error al crear tarea',
+        detalle: error.message
+      })
+    );
+  }
+};
+
+const actualizarTarea = async (req, res) => {
+  try {
+    const tareaParaActualizar = {
+      ...req.body,
+      id: req.params.id || req.body.id
+    };
+
+    const tareaActualizada = await tareasService.actualizarTarea(tareaParaActualizar);
+
+    if (!tareaActualizada) {
+      res.status(404);
+      res.setHeader('Content-Type', 'application/json');
+      res.send(JSON.stringify({ mensaje: 'Tarea no encontrada' }));
+
+      return;
+    }
+
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify(tareaActualizada));
+
+  } catch (error) {
+    res.status(400);
+    res.setHeader('Content-Type', 'application/json');
+    res.send(
+      JSON.stringify({
+        mensaje: 'Error al actualizar tarea',
+        detalle: error.message
+      })
+    );
+  }
+};
+
 module.exports = {
   listarTareas,
   buscarTareaPorId,
-  tareasFiltradasEstado
+  tareasFiltradasEstado,
+  crearTarea,
+  actualizarTarea
 };

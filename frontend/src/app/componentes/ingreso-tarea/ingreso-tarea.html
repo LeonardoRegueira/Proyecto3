@@ -1,0 +1,56 @@
+<div class="fondo">
+
+  <form class="card shadow-sm" (ngSubmit)="guardar()">
+    <div *ngIf="mensajeError" class="alert alert-danger" role="alert">
+      {{ mensajeError }}
+    </div>
+
+    <div class="formulario_titulo">
+      <label for="titulo_cuerpo" id="titulo_formulario">Titulo</label>
+      <input [(ngModel)]="titulo" name="titulo" type="text" class="form-titulo" id="titulo_cuerpo" placeholder="Ingrese titulo">
+    </div>
+    
+    <div class="form-descripcion">
+      <label for="descripcion_cuerpo" id="descripcion_titulo">Descripcion</label>
+      <textarea [(ngModel)]="descripcion" name="descripcion" class="form-control" id="descripcion_cuerpo" rows="3"></textarea>
+    </div>
+
+    <div class="form-prioridad">
+      <label for="nivel_cuerpo" id="nivel_titulo">Prioridad</label>
+      <select [(ngModel)]="nivel_prioridad" name="nivel_prioridad" class="form-select" id="nivel_cuerpo">
+        <option value="Baja">Baja</option>
+        <option value="Media">Media</option>
+        <option value="Alta">Alta</option>
+      </select>
+    </div>
+
+    <button type="submit">
+      Enviar
+    </button>
+  </form>
+
+  <div *ngIf="mostrarModalExito" class="modal fade show d-block" tabindex="-1" role="dialog" aria-modal="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Tarea creada</h5>
+          
+        </div>
+
+        <div class="modal-body">
+          <div class="alert alert-success mb-0" role="alert">
+            {{ mensajeExito }}
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          
+          <button type="button" class="btn btn-primary" (click)="irAListaTareas()">
+            Ir a lista de tareas
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="mostrarModalExito" class="modal-backdrop fade show"></div>
+</div>

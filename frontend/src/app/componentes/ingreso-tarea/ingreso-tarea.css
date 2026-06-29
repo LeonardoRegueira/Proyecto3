@@ -70,6 +70,21 @@ button:hover {
     background-color: #1d4ed8;
 }
 
+.modal {
+    background-color: rgba(15, 23, 42, 0.1);
+}
+
+.modal-footer button,
+.modal-header button {
+    width: auto;
+    margin: 0;
+}
+
+.modal-header .btn-close {
+    padding: 8px;
+    background-color: transparent;
+}
+
 @media (max-width: 576px) {
     .formulario_titulo {
         align-items: stretch;

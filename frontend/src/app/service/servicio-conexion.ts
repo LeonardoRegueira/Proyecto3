@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IngresoTarea } from '../ingreso-tarea/ingreso-tarea';
+import { IngresoTarea } from '../componentes/ingreso-tarea/ingreso-tarea';
 import { Todos } from '../componentes/historial/todos/todos';
 import { Pendientes } from '../componentes/historial/pendientes/pendientes';
 import { Progreso } from '../componentes/historial/progreso/progreso';
