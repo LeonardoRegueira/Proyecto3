@@ -22,11 +22,16 @@ const crearTarea = async (nuevaTarea) => {
 const actualizarTarea = async (tareaModificada) => {
   return await tareasRepository.actualizarTarea(tareaModificada);
 };
+
+const eliminarTarea = async (idBuscado) => {
+  return await tareasRepository.eliminarTarea(idBuscado);
+};
                                                                                                                                                                               
 module.exports = {
   listarTareas,
   buscarTareaPorId,
   listarTareasPorEstado,
   crearTarea,
-  actualizarTarea
+  actualizarTarea,
+  eliminarTarea
 };

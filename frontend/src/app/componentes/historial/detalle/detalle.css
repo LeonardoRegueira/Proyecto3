@@ -31,3 +31,12 @@
   margin-top: 12px;
   margin-right: 10px;
 }
+
+.modal {
+  background-color: rgba(15, 23, 42, 0.1);
+}
+
+.modal-footer button {
+  width: auto;
+  margin: 0;
+}

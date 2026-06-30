@@ -107,10 +107,33 @@ const actualizarTarea = async (req, res) => {
   }
 };
 
+const eliminarTarea = async (req, res) => {
+  try {
+    const tareaEliminada = await tareasService.eliminarTarea(req.params.id);
+
+    if (!tareaEliminada) {
+      res.status(404);
+      res.setHeader('Content-Type', 'application/json');
+      res.send(JSON.stringify({ mensaje: 'Tarea no encontrada' }));
+
+      return;
+    }
+
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify({ mensaje: 'Tarea eliminada correctamente' }));
+
+  } catch (error) {
+    res.status(500);
+    res.setHeader('Content-Type', 'application/json');
+    res.send(JSON.stringify({ mensaje: 'Error al eliminar tarea' }));
+  }
+};
+
 module.exports = {
   listarTareas,
   buscarTareaPorId,
   tareasFiltradasEstado,
   crearTarea,
-  actualizarTarea
+  actualizarTarea,
+  eliminarTarea
 };

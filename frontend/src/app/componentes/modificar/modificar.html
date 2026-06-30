@@ -1,6 +1,10 @@
 <div class="fondo">
     <div class="card shadow-sm">
-        <label for="titulo">Título</label>
+        <div *ngIf="mensajeError" class="alert alert-danger" role="alert">
+            {{ mensajeError }}
+        </div>
+
+        <label for="titulo">Titulo</label>
         <input id="titulo" name="titulo" [(ngModel)]="tarea.titulo" type="text">
 
         <label for="descripcion">Descripcion</label>
@@ -13,7 +17,6 @@
             <option value="Alta">Alta</option>
         </select>
 
-        
         <label for="estado">Estado</label>
         <select id="estado" name="estado" [(ngModel)]="tarea.estado">
             <option>pendiente</option>
@@ -23,4 +26,27 @@
 
         <button (click)="guardarModificar()">Modificar</button>
     </div>
+
+    <div *ngIf="mostrarModalExito" class="modal fade show d-block" tabindex="-1" role="dialog" aria-modal="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tarea modificada</h5>
+                </div>
+
+                <div class="modal-body">
+                    <div class="alert alert-success mb-0" role="alert">
+                        {{ mensajeExito }}
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" (click)="irAListaTareas()">
+                        Ir a lista de tareas
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="mostrarModalExito" class="modal-backdrop fade show"></div>
 </div>
