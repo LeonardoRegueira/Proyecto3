@@ -21,7 +21,7 @@ export interface Tarea {
 })
 export class TareaService {
 
-  private apiUrl = 'http://localhost:3000/tareas';
+  private apiUrl = 'http://127.0.0.1:3000/api/tareas';
 
   constructor(private http: HttpClient) {}
 

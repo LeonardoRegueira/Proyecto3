@@ -16,8 +16,7 @@ app.get('/', (req, res) => {
   res.send('Backend funcionando');
 });
 
-app.use('/tareas', routerTareas);
-app.use('/api', routerTareas);
+app.use('/api/tareas', routerTareas);
 
 const iniciarServidor = async () => {
   await conectarDB();

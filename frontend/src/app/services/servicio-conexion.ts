@@ -13,31 +13,31 @@ import { Modificar } from '../componentes/modificar/modificar';
 })
 
 export class ServicioConexion {
-  private url = "http://127.0.0.1:3000/api";
+  private url = "http://127.0.0.1:3000/api/tareas";
 
   constructor(private httpClient: HttpClient) { }
   public ingresarTarea(nueva_tarea: object): Observable<IngresoTarea> {
-    return this.httpClient.post<IngresoTarea>(`${this.url}/ingresar-tarea`,nueva_tarea)
+    return this.httpClient.post<IngresoTarea>(this.url,nueva_tarea)
   }
-  public modificarTarea(tarea_modificada: object): Observable<Modificar> {
-    return this.httpClient.put<Modificar>(`${this.url}/actualizar`,tarea_modificada)
+  public modificarTarea(tarea_modificada: any): Observable<Modificar> {
+    return this.httpClient.put<Modificar>(`${this.url}/${tarea_modificada.id}`,tarea_modificada)
   }
   public eliminarTarea(id_tarea_por_eliminar: Number): Observable<Todos> {
-    return this.httpClient.delete<Todos>(`${this.url}/eliminar/${id_tarea_por_eliminar}`);
+    return this.httpClient.delete<Todos>(`${this.url}/${id_tarea_por_eliminar}`);
   }
   public leerTodasLasTareas(): Observable<Todos> {
-    return this.httpClient.get<Todos>(`${this.url}/tareas/todas`);
+    return this.httpClient.get<Todos>(this.url);
   }
   public leerLasTareasPendientes(): Observable<Pendientes> {
-    return this.httpClient.get<Pendientes>(`${this.url}/tareas/estado/pendiente`);
+    return this.httpClient.get<Pendientes>(`${this.url}/estado/pendiente`);
   }
   public leerLasTareasEnProgreso(): Observable<Progreso> {
-    return this.httpClient.get<Progreso>(`${this.url}/tareas/estado/en%20progreso`);
+    return this.httpClient.get<Progreso>(`${this.url}/estado/en%20progreso`);
   }
   public leerLasTareasCompletos(): Observable<Completos> {
-    return this.httpClient.get<Completos>(`${this.url}/tareas/estado/completada`);
+    return this.httpClient.get<Completos>(`${this.url}/estado/completada`);
   }
   public leerLasTareasSegunId(id_buscado: Number): Observable<Todos> {
-    return this.httpClient.get<Todos>(`${this.url}/tareas/id/${id_buscado}`);
+    return this.httpClient.get<Todos>(`${this.url}/${id_buscado}`);
   }
 }
