@@ -11,6 +11,7 @@ routerTareas.get('/tareas/id/:id', tareasController.buscarTareaPorId);
 routerTareas.get('/tareas/estado/:estado', tareasController.tareasFiltradasEstado);
 routerTareas.post('/ingresar-tarea', tareasController.crearTarea);
 routerTareas.put('/actualizar', tareasController.actualizarTarea);
+routerTareas.delete('/eliminar/:id', tareasController.eliminarTarea);
 
 // Rutas compatibles con el frontend actual.
 routerTareas.get('/', tareasController.listarTareas);
@@ -18,5 +19,6 @@ routerTareas.get('/estado/:estado', tareasController.tareasFiltradasEstado);
 routerTareas.get('/:id', tareasController.buscarTareaPorId);
 routerTareas.post('/', tareasController.crearTarea);
 routerTareas.put('/:id', tareasController.actualizarTarea);
+routerTareas.delete('/:id', tareasController.eliminarTarea);
 
 module.exports = routerTareas;

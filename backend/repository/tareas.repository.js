@@ -40,10 +40,15 @@ const actualizarTarea = async (tareaModificada) => {
   );
 };
 
+const eliminarTarea = async (idBuscado) => {
+  return await Tarea.findOneAndDelete({ id: idBuscado });
+};
+
 module.exports = {
   todasLasTareas,
   tareasFiltradasSegunId,
   tareasFiltradasSegunEstado,
   crearTarea,
   actualizarTarea,
+  eliminarTarea,
 };

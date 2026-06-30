@@ -15,6 +15,8 @@ export class Detalle implements OnInit{
     private activeRoute: ActivatedRoute,
     private route: Router){}
 tarea: any=null;
+mensajeExito = '';
+mostrarModalExito = false;
 
   leerTareaSegunId(){
     const id = Number(this.activeRoute.snapshot.params["id"]);
@@ -26,8 +28,13 @@ tarea: any=null;
   }
   eliminar(id:number){
     this.serviceConexion.eliminarTarea(id).subscribe(()=>{
-      this.route.navigate(["/historial/todos"]);
+      this.mensajeExito = 'Tarea eliminada correctamente.';
+      this.mostrarModalExito = true;
     })
+  }
+  irAListaTareas(){
+    this.mostrarModalExito = false;
+    this.route.navigate(["/historial/todos"]);
   }
   ngOnInit(){
     this.leerTareaSegunId();
