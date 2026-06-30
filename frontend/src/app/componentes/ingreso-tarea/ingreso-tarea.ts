@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ServicioConexion } from '../../service/servicio-conexion';
+import { ServicioConexion } from '../../services/servicio-conexion';
 
 @Component({
   selector: 'app-ingreso-tarea',
